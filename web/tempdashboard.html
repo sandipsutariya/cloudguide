@@ -13,24 +13,24 @@
 
   </head>
   <body>
-     <div class="container">
-		<h1 class="my-5">Temperature sensor dashboard</h1>
-		<div id="sensordata"></div>
-		<div class="my-5">
-			<table class = "table table-bordered" id="sensortable">
-			  <thead>
-				<tr>
-				  <th> Thing name</th>
-				  <th> Temperature</th>
-				</tr>
-			  </thead>
-			  <tbody>
-			  </tbody>
-			</table>
+		<div class="container">
+			<h3 class="my-5">Temperature sensor dashboard</h3>
+			<div id="sensordata"></div>
+			<div class="my-5">
+				<table class = "table table-bordered" id="sensortable">
+				  <thead>
+					<tr>
+					  <th> Thing name </th>
+					  <th> Temperature </th>
+					  <th> Time </th>
+					</tr>
+				  </thead>
+				  <tbody>
+				  </tbody>
+				</table>
+			</div>
 		</div>
-	 </div>
-    
-    
+     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -38,11 +38,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
       $(document).ready(function(){
-        $.get("https://h09bz5o1ge.execute-api.us-east-1.amazonaws.com/dev/test",function(result, status){
+        $.get("https://h09bz5o1ge.execute-api.us-east-1.amazonaws.com/dev/get",function(result, status){
           //alert(result.length)
           for(i in result){
             //alert(result[i].thingname)
-            $('#sensortable > tbody:last').append('<tr>'+'<td>'+result[i].thingname+'</td>'+'<td>'+result[i].temperature+'</td>'+'</tr>');
+            $('#sensortable > tbody:last').append('<tr>'+'<td>'+result[i].thingname+'</td>'+'<td>'+result[i].temperature+'</td>'+'<td>'+result[i].time+'</td>'+'</tr>');
           }
         });
       });	  
